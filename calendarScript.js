@@ -69,7 +69,7 @@ const renderCalendar = () => {
     }
   ];
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()] + " " + date.getFullYear();
 
   document.querySelector(".date p").innerHTML = new Date().toDateString();
 
@@ -102,13 +102,19 @@ const renderCalendar = () => {
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
-  date.setMonth(date.getMonth() - 1);
-  renderCalendar();
+  const todayDate = new Date();
+  if(todayDate.getFullYear() - date.getFullYear() < 4 || ((todayDate.getFullYear() - date.getFullYear()) == 4 && date.getMonth() > 0)){
+    date.setMonth(date.getMonth() - 1);
+    renderCalendar();11
+  }
 });
 
 document.querySelector(".next").addEventListener("click", () => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
+  const todayDate = new Date();
+  if(todayDate.getFullYear() > date.getFullYear() || (todayDate.getFullYear() == date.getFullYear() && date.getMonth() < 11)){
+    date.setMonth(date.getMonth() + 1);
+    renderCalendar();
+  }
 });
 
 renderCalendar();

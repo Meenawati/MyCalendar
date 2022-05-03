@@ -92,12 +92,6 @@ html {
     transition: background-color 0.2s;
   }
   
-  .days div:hover:not(.today) {
-    background-color: #F8ECD1;
-    border: 0.2rem solid #777;
-    cursor: pointer;
-  }
-  
   .prev-date,
   .next-date {
     opacity: 0.5;
